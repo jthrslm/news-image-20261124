@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
-"""Draft entry image for news-image-20261124 (1024x1024 PNG, <=1 MiB).
-DRAFT only: stories are the morning of 24 Nov 2026 and must be re-verified
-against authoritative sources on 25 Nov before finalising.
+"""Final entry image for news-image-20261124 (1024x1024 PNG, <=1 MiB).
+Six stories from 24 November 2026, each verified against an authoritative
+source on 25 Nov 2026 (Reuters / CNN / WSJ / France 24 / Sanofi). The COP31
+collapse was left out: it ended on 22 Nov, so it is not 24 Nov news. The
+Colombia car bomb was left out: only a single weak source could be found.
 Draws with PIL only, no network, no external images.
 """
 from PIL import Image, ImageDraw, ImageFont
@@ -37,18 +39,18 @@ d.text((48, 28), "TUESDAY  24  NOVEMBER  2026", font=load_font(44, bold=True), f
 d.text((48, 88), "THE WORLD IN ONE PICTURE  ·  make.fun news image", font=load_font(26), fill=(180, 200, 230))
 
 stories = [
-    ("UKRAINE", "War reaches Libya's coast",
-     "Ukraine says it struck a Russian warship off Libya; the UN warns Libya must not become a new front.", RED),
-    ("CLIMATE", "COP31 talks stall",
-     "Climate talks in Türkiye hit deadlock as nations split over fossil fuels and finance for poorer states.", GREEN),
-    ("INDONESIA", "Factory fire, rescue under way",
-     "A major fire at an Indonesian industrial plant leaves workers missing; emergency teams search the site.", AMBER),
-    ("INDIA", "Himalayan flood",
-     "At least four people are dead and about 100 missing after floodwater tore through a mountain valley.", TEAL),
-    ("HEALTH", "Bangladesh vaccinates 50m children",
-     "A month-long typhoid vaccination drive targets drug-resistant strains across South Asia.", PURPLE),
-    ("TRADE", "Japan–US deal lifts markets",
-     "Tokyo stocks rally after a Japan–US trade deal; SoftBank plans a $2bn investment in Intel.", NAVY),
+    ("NVIDIA", "Huang is back as Nvidia chief",
+     "The board unanimously reinstates Jensen Huang as president and CEO, 11 days after his resignation; shares jump.", RED),
+    ("CHINA", "Shanghai party chief probed",
+     "China investigates Politburo member Chen Jining, Shanghai's party boss, the fourth top leader to fall since 2025.", TEAL),
+    ("UKRAINE", "Zelensky urges four-party talks",
+     "Ukraine's president calls for Ukraine-Russia-US-Europe peace talks 'as soon as possible'; Kyiv is ready tomorrow.", NAVY),
+    ("POLAND", "Russian drone enters Polish airspace",
+     "A Russian drone briefly crosses into Poland during a night attack on Ukraine; Warsaw says it looks deliberate.", AMBER),
+    ("CHIPS", "US blacklists Singapore's Megaspeed",
+     "Washington adds Megaspeed to its Entity List over alleged diversion of Nvidia AI chips to China, plus six more firms.", PURPLE),
+    ("PHARMA", "Sanofi buys Insmed for $41bn",
+     "Sanofi agrees to buy US drugmaker Insmed for $41 billion in cash, the year's biggest biopharma deal, at $175 a share.", GREEN),
 ]
 
 y = 170
@@ -69,6 +71,6 @@ for tag, head, body, color in stories:
         d.text((72, y + 78 + i * 20), line, font=load_font(19), fill=GREY)
     y += 134
 
-d.text((48, 992), "Sources: news reported on 24 November 2026  ·  One day, six stories", font=load_font(19), fill=GREY)
+d.text((48, 992), "Sources: Reuters · CNN · WSJ · France 24 · Sanofi  ·  Reported 24 November 2026", font=load_font(19), fill=GREY)
 img.save(OUT, "PNG", optimize=True)
 print(OUT, os.path.getsize(OUT), "bytes,", img.size)
